@@ -1,0 +1,23 @@
+{
+  "name": "atd-browser-support",
+  "version": "0.0.1",
+  "description": "Browser support module for web development",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/airtightdesign/atd-browser-support.git"
+  },
+  "keywords": [
+    "frontend",
+    "browser-support"
+  ],
+  "author": "John Grahan <john@airtightdesign.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/airtightdesign/atd-browser-support/issues"
+  },
+  "homepage": "https://github.com/airtightdesign/atd-browser-support#readme"
+}
