@@ -5,4 +5,6 @@ bower_components
 node_modules/
 jspm_packages/
 
-
+*.swp
+.DS_Store
+._*

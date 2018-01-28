@@ -2,9 +2,10 @@
   "name": "atd-browser-support",
   "version": "0.0.1",
   "description": "Browser support module for web development",
-  "main": "index.js",
+  "main": "dist/atd-browser-support.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "webpack": "webpack",
+    "http": "http-server ./test"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,13 @@
   "bugs": {
     "url": "https://github.com/airtightdesign/atd-browser-support/issues"
   },
-  "homepage": "https://github.com/airtightdesign/atd-browser-support#readme"
+  "homepage": "https://github.com/airtightdesign/atd-browser-support#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "http-server": "^0.11.1",
+    "webpack": "^3.10.0",
+    "webpack-preset-env": "^1.0.0"
+  }
 }
