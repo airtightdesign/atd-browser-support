@@ -68,7 +68,3 @@ export const Supports = (function() {
         getSupportLevel
     }
 })();
-
-Supports.loadSupport(function() {
-    console.log('Ready'); 
-});
