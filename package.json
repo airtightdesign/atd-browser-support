@@ -28,8 +28,10 @@
     "classlist-polyfill": "^1.2.0",
     "console-polyfill": "^0.3.0",
     "es6-promise-polyfill": "^1.2.0",
+    "fetch-polyfill": "^0.8.2",
     "http-server": "^0.11.1",
     "webpack": "^3.10.0",
-    "webpack-preset-env": "^1.0.0"
+    "webpack-preset-env": "^1.0.0",
+    "whatwg-fetch": "^2.0.3"
   }
 }

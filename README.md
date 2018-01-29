@@ -10,11 +10,13 @@ https://philipwalton.com/articles/loading-polyfills-only-when-needed/
 
 #### Polyfills Included: 
 
+- `fetch`
 - `Promise`
 
 ### Deprecated Browsers
 
 #### Polyfills Included:
 
+- All Legacy polyfills plus
 - `classList`
 - `Console`
