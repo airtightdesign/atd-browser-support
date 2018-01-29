@@ -3,9 +3,9 @@ import Legacy from './legacy.support';
 import Deprecated from './deprecated.support';
 
 export const Supports = (function() {
-    var _callback = null;
-
     function loadSupport(callback) {
+        let _callback;
+        
         if(typeof callback === 'function') {
             _callback = callback;
         }
