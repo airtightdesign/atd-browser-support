@@ -67,6 +67,15 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
+__webpack_require__(1);
+__webpack_require__(5);
+module.exports = __webpack_require__(6);
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
 
@@ -75,15 +84,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Supports = undefined;
 
-var _modern = __webpack_require__(1);
+var _modern = __webpack_require__(2);
 
 var _modern2 = _interopRequireDefault(_modern);
 
-var _legacy = __webpack_require__(2);
+var _legacy = __webpack_require__(3);
 
 var _legacy2 = _interopRequireDefault(_legacy);
 
-var _deprecated = __webpack_require__(3);
+var _deprecated = __webpack_require__(4);
 
 var _deprecated2 = _interopRequireDefault(_deprecated);
 
@@ -137,7 +146,7 @@ var Supports = exports.Supports = function () {
 Supports.loadSupport();
 
 /***/ }),
-/* 1 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -165,7 +174,7 @@ exports.default = function () {
 }();
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -191,7 +200,7 @@ exports.default = function () {
 }();
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -204,6 +213,20 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = function () {
     return {};
 }();
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 
 /***/ })
 /******/ ]);
