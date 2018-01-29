@@ -10,10 +10,11 @@ https://philipwalton.com/articles/loading-polyfills-only-when-needed/
 
 #### Polyfills Included: 
 
-- Promise
+- `Promise`
 
 ### Deprecated Browsers
 
 #### Polyfills Included:
 
-- Console
+- `classList`
+- `Console`
