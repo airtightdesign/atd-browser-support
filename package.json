@@ -25,6 +25,9 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
+    "classlist-polyfill": "^1.2.0",
+    "console-polyfill": "^0.3.0",
+    "es6-promise-polyfill": "^1.2.0",
     "http-server": "^0.11.1",
     "webpack": "^3.10.0",
     "webpack-preset-env": "^1.0.0"

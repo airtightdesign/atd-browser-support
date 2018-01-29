@@ -100,13 +100,13 @@ module.exports = g;
 "use strict";
 
 
-var _promise = __webpack_require__(2);
+var _es6PromisePolyfill = __webpack_require__(2);
 
-var _promise2 = _interopRequireDefault(_promise);
+var _es6PromisePolyfill2 = _interopRequireDefault(_es6PromisePolyfill);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-window.Promise = _promise2.default;
+window.Promise = _es6PromisePolyfill2.default;
 
 /***/ }),
 /* 2 */
@@ -124,7 +124,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   //
 
   var NativePromise = global['Promise'];
-  console.log(NativePromise);
   var nativePromiseSupported = NativePromise &&
   // Some of these methods are missing from
   // Firefox/Chrome experimental implementations
@@ -893,21 +892,21 @@ __webpack_require__(12);
 // https://github.com/paulmillr/console-polyfill
 // Make it safe to do console.log() always.
 (function (global) {
-    'use strict';
+  'use strict';
 
-    if (!global.console) {
-        global.console = {};
-    }
-    var con = global.console;
-    var prop, method;
-    var dummy = function dummy() {};
-    var properties = ['memory'];
-    var methods = ('assert,clear,count,debug,dir,dirxml,error,exception,group,' + 'groupCollapsed,groupEnd,info,log,markTimeline,profile,profiles,profileEnd,' + 'show,table,time,timeEnd,timeline,timelineEnd,timeStamp,trace,warn').split(',');
-    while (prop = properties.pop()) {
-        if (!con[prop]) con[prop] = {};
-    }while (method = methods.pop()) {
-        if (!con[method]) con[method] = dummy;
-    } // Using `this` for web workers & supports Browserify / Webpack.
+  if (!global.console) {
+    global.console = {};
+  }
+  var con = global.console;
+  var prop, method;
+  var dummy = function dummy() {};
+  var properties = ['memory'];
+  var methods = ('assert,clear,count,debug,dir,dirxml,error,exception,group,' + 'groupCollapsed,groupEnd,info,log,markTimeline,profile,profiles,profileEnd,' + 'show,table,time,timeEnd,timeline,timelineEnd,timeStamp,trace,warn').split(',');
+  while (prop = properties.pop()) {
+    if (!con[prop]) con[prop] = {};
+  }while (method = methods.pop()) {
+    if (!con[method]) con[method] = dummy;
+  } // Using `this` for web workers & supports Browserify / Webpack.
 })(typeof window === 'undefined' ? undefined : window);
 
 /***/ }),
@@ -932,205 +931,205 @@ __webpack_require__(12);
 
 if ("document" in window.self) {
 
-    // Full polyfill for browsers with no classList support
-    // Including IE < Edge missing SVGElement.classList
-    if (!("classList" in document.createElement("_")) || document.createElementNS && !("classList" in document.createElementNS("http://www.w3.org/2000/svg", "g"))) {
+	// Full polyfill for browsers with no classList support
+	// Including IE < Edge missing SVGElement.classList
+	if (!("classList" in document.createElement("_")) || document.createElementNS && !("classList" in document.createElementNS("http://www.w3.org/2000/svg", "g"))) {
 
-        (function (view) {
+		(function (view) {
 
-            "use strict";
+			"use strict";
 
-            if (!('Element' in view)) return;
+			if (!('Element' in view)) return;
 
-            var classListProp = "classList",
-                protoProp = "prototype",
-                elemCtrProto = view.Element[protoProp],
-                objCtr = Object,
-                strTrim = String[protoProp].trim || function () {
-                return this.replace(/^\s+|\s+$/g, "");
-            },
-                arrIndexOf = Array[protoProp].indexOf || function (item) {
-                var i = 0,
-                    len = this.length;
-                for (; i < len; i++) {
-                    if (i in this && this[i] === item) {
-                        return i;
-                    }
-                }
-                return -1;
-            }
-            // Vendors: please allow content code to instantiate DOMExceptions
-            ,
-                DOMEx = function DOMEx(type, message) {
-                this.name = type;
-                this.code = DOMException[type];
-                this.message = message;
-            },
-                checkTokenAndGetIndex = function checkTokenAndGetIndex(classList, token) {
-                if (token === "") {
-                    throw new DOMEx("SYNTAX_ERR", "An invalid or illegal string was specified");
-                }
-                if (/\s/.test(token)) {
-                    throw new DOMEx("INVALID_CHARACTER_ERR", "String contains an invalid character");
-                }
-                return arrIndexOf.call(classList, token);
-            },
-                ClassList = function ClassList(elem) {
-                var trimmedClasses = strTrim.call(elem.getAttribute("class") || ""),
-                    classes = trimmedClasses ? trimmedClasses.split(/\s+/) : [],
-                    i = 0,
-                    len = classes.length;
-                for (; i < len; i++) {
-                    this.push(classes[i]);
-                }
-                this._updateClassName = function () {
-                    elem.setAttribute("class", this.toString());
-                };
-            },
-                classListProto = ClassList[protoProp] = [],
-                classListGetter = function classListGetter() {
-                return new ClassList(this);
-            };
-            // Most DOMException implementations don't allow calling DOMException's toString()
-            // on non-DOMExceptions. Error's toString() is sufficient here.
-            DOMEx[protoProp] = Error[protoProp];
-            classListProto.item = function (i) {
-                return this[i] || null;
-            };
-            classListProto.contains = function (token) {
-                token += "";
-                return checkTokenAndGetIndex(this, token) !== -1;
-            };
-            classListProto.add = function () {
-                var tokens = arguments,
-                    i = 0,
-                    l = tokens.length,
-                    token,
-                    updated = false;
-                do {
-                    token = tokens[i] + "";
-                    if (checkTokenAndGetIndex(this, token) === -1) {
-                        this.push(token);
-                        updated = true;
-                    }
-                } while (++i < l);
+			var classListProp = "classList",
+			    protoProp = "prototype",
+			    elemCtrProto = view.Element[protoProp],
+			    objCtr = Object,
+			    strTrim = String[protoProp].trim || function () {
+				return this.replace(/^\s+|\s+$/g, "");
+			},
+			    arrIndexOf = Array[protoProp].indexOf || function (item) {
+				var i = 0,
+				    len = this.length;
+				for (; i < len; i++) {
+					if (i in this && this[i] === item) {
+						return i;
+					}
+				}
+				return -1;
+			}
+			// Vendors: please allow content code to instantiate DOMExceptions
+			,
+			    DOMEx = function DOMEx(type, message) {
+				this.name = type;
+				this.code = DOMException[type];
+				this.message = message;
+			},
+			    checkTokenAndGetIndex = function checkTokenAndGetIndex(classList, token) {
+				if (token === "") {
+					throw new DOMEx("SYNTAX_ERR", "An invalid or illegal string was specified");
+				}
+				if (/\s/.test(token)) {
+					throw new DOMEx("INVALID_CHARACTER_ERR", "String contains an invalid character");
+				}
+				return arrIndexOf.call(classList, token);
+			},
+			    ClassList = function ClassList(elem) {
+				var trimmedClasses = strTrim.call(elem.getAttribute("class") || ""),
+				    classes = trimmedClasses ? trimmedClasses.split(/\s+/) : [],
+				    i = 0,
+				    len = classes.length;
+				for (; i < len; i++) {
+					this.push(classes[i]);
+				}
+				this._updateClassName = function () {
+					elem.setAttribute("class", this.toString());
+				};
+			},
+			    classListProto = ClassList[protoProp] = [],
+			    classListGetter = function classListGetter() {
+				return new ClassList(this);
+			};
+			// Most DOMException implementations don't allow calling DOMException's toString()
+			// on non-DOMExceptions. Error's toString() is sufficient here.
+			DOMEx[protoProp] = Error[protoProp];
+			classListProto.item = function (i) {
+				return this[i] || null;
+			};
+			classListProto.contains = function (token) {
+				token += "";
+				return checkTokenAndGetIndex(this, token) !== -1;
+			};
+			classListProto.add = function () {
+				var tokens = arguments,
+				    i = 0,
+				    l = tokens.length,
+				    token,
+				    updated = false;
+				do {
+					token = tokens[i] + "";
+					if (checkTokenAndGetIndex(this, token) === -1) {
+						this.push(token);
+						updated = true;
+					}
+				} while (++i < l);
 
-                if (updated) {
-                    this._updateClassName();
-                }
-            };
-            classListProto.remove = function () {
-                var tokens = arguments,
-                    i = 0,
-                    l = tokens.length,
-                    token,
-                    updated = false,
-                    index;
-                do {
-                    token = tokens[i] + "";
-                    index = checkTokenAndGetIndex(this, token);
-                    while (index !== -1) {
-                        this.splice(index, 1);
-                        updated = true;
-                        index = checkTokenAndGetIndex(this, token);
-                    }
-                } while (++i < l);
+				if (updated) {
+					this._updateClassName();
+				}
+			};
+			classListProto.remove = function () {
+				var tokens = arguments,
+				    i = 0,
+				    l = tokens.length,
+				    token,
+				    updated = false,
+				    index;
+				do {
+					token = tokens[i] + "";
+					index = checkTokenAndGetIndex(this, token);
+					while (index !== -1) {
+						this.splice(index, 1);
+						updated = true;
+						index = checkTokenAndGetIndex(this, token);
+					}
+				} while (++i < l);
 
-                if (updated) {
-                    this._updateClassName();
-                }
-            };
-            classListProto.toggle = function (token, force) {
-                token += "";
+				if (updated) {
+					this._updateClassName();
+				}
+			};
+			classListProto.toggle = function (token, force) {
+				token += "";
 
-                var result = this.contains(token),
-                    method = result ? force !== true && "remove" : force !== false && "add";
+				var result = this.contains(token),
+				    method = result ? force !== true && "remove" : force !== false && "add";
 
-                if (method) {
-                    this[method](token);
-                }
+				if (method) {
+					this[method](token);
+				}
 
-                if (force === true || force === false) {
-                    return force;
-                } else {
-                    return !result;
-                }
-            };
-            classListProto.toString = function () {
-                return this.join(" ");
-            };
+				if (force === true || force === false) {
+					return force;
+				} else {
+					return !result;
+				}
+			};
+			classListProto.toString = function () {
+				return this.join(" ");
+			};
 
-            if (objCtr.defineProperty) {
-                var classListPropDesc = {
-                    get: classListGetter,
-                    enumerable: true,
-                    configurable: true
-                };
-                try {
-                    objCtr.defineProperty(elemCtrProto, classListProp, classListPropDesc);
-                } catch (ex) {
-                    // IE 8 doesn't support enumerable:true
-                    // adding undefined to fight this issue https://github.com/eligrey/classList.js/issues/36
-                    // modernie IE8-MSW7 machine has IE8 8.0.6001.18702 and is affected
-                    if (ex.number === undefined || ex.number === -0x7FF5EC54) {
-                        classListPropDesc.enumerable = false;
-                        objCtr.defineProperty(elemCtrProto, classListProp, classListPropDesc);
-                    }
-                }
-            } else if (objCtr[protoProp].__defineGetter__) {
-                elemCtrProto.__defineGetter__(classListProp, classListGetter);
-            }
-        })(window.self);
-    }
+			if (objCtr.defineProperty) {
+				var classListPropDesc = {
+					get: classListGetter,
+					enumerable: true,
+					configurable: true
+				};
+				try {
+					objCtr.defineProperty(elemCtrProto, classListProp, classListPropDesc);
+				} catch (ex) {
+					// IE 8 doesn't support enumerable:true
+					// adding undefined to fight this issue https://github.com/eligrey/classList.js/issues/36
+					// modernie IE8-MSW7 machine has IE8 8.0.6001.18702 and is affected
+					if (ex.number === undefined || ex.number === -0x7FF5EC54) {
+						classListPropDesc.enumerable = false;
+						objCtr.defineProperty(elemCtrProto, classListProp, classListPropDesc);
+					}
+				}
+			} else if (objCtr[protoProp].__defineGetter__) {
+				elemCtrProto.__defineGetter__(classListProp, classListGetter);
+			}
+		})(window.self);
+	}
 
-    // There is full or partial native classList support, so just check if we need
-    // to normalize the add/remove and toggle APIs.
+	// There is full or partial native classList support, so just check if we need
+	// to normalize the add/remove and toggle APIs.
 
-    (function () {
-        "use strict";
+	(function () {
+		"use strict";
 
-        var testElement = document.createElement("_");
+		var testElement = document.createElement("_");
 
-        testElement.classList.add("c1", "c2");
+		testElement.classList.add("c1", "c2");
 
-        // Polyfill for IE 10/11 and Firefox <26, where classList.add and
-        // classList.remove exist but support only one argument at a time.
-        if (!testElement.classList.contains("c2")) {
-            var createMethod = function createMethod(method) {
-                var original = DOMTokenList.prototype[method];
+		// Polyfill for IE 10/11 and Firefox <26, where classList.add and
+		// classList.remove exist but support only one argument at a time.
+		if (!testElement.classList.contains("c2")) {
+			var createMethod = function createMethod(method) {
+				var original = DOMTokenList.prototype[method];
 
-                DOMTokenList.prototype[method] = function (token) {
-                    var i,
-                        len = arguments.length;
+				DOMTokenList.prototype[method] = function (token) {
+					var i,
+					    len = arguments.length;
 
-                    for (i = 0; i < len; i++) {
-                        token = arguments[i];
-                        original.call(this, token);
-                    }
-                };
-            };
-            createMethod('add');
-            createMethod('remove');
-        }
+					for (i = 0; i < len; i++) {
+						token = arguments[i];
+						original.call(this, token);
+					}
+				};
+			};
+			createMethod('add');
+			createMethod('remove');
+		}
 
-        testElement.classList.toggle("c3", false);
+		testElement.classList.toggle("c3", false);
 
-        // Polyfill for IE 10 and Firefox <24, where classList.toggle does not
-        // support the second argument.
-        if (testElement.classList.contains("c3")) {
-            var _toggle = DOMTokenList.prototype.toggle;
+		// Polyfill for IE 10 and Firefox <24, where classList.toggle does not
+		// support the second argument.
+		if (testElement.classList.contains("c3")) {
+			var _toggle = DOMTokenList.prototype.toggle;
 
-            DOMTokenList.prototype.toggle = function (token, force) {
-                if (1 in arguments && !this.contains(token) === !force) {
-                    return force;
-                } else {
-                    return _toggle.call(this, token);
-                }
-            };
-        }
+			DOMTokenList.prototype.toggle = function (token, force) {
+				if (1 in arguments && !this.contains(token) === !force) {
+					return force;
+				} else {
+					return _toggle.call(this, token);
+				}
+			};
+		}
 
-        testElement = null;
-    })();
+		testElement = null;
+	})();
 }
 
 /***/ })

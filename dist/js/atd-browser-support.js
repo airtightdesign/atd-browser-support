@@ -96,9 +96,9 @@ var _deprecated2 = _interopRequireDefault(_deprecated);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Supports = exports.Supports = function () {
-    var _callback = null;
-
     function loadSupport(callback) {
+        var _callback = void 0;
+
         if (typeof callback === 'function') {
             _callback = callback;
         }

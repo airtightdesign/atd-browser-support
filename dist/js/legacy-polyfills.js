@@ -100,13 +100,13 @@ module.exports = g;
 "use strict";
 
 
-var _promise = __webpack_require__(2);
+var _es6PromisePolyfill = __webpack_require__(2);
 
-var _promise2 = _interopRequireDefault(_promise);
+var _es6PromisePolyfill2 = _interopRequireDefault(_es6PromisePolyfill);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-window.Promise = _promise2.default;
+window.Promise = _es6PromisePolyfill2.default;
 
 /***/ }),
 /* 2 */
@@ -124,7 +124,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   //
 
   var NativePromise = global['Promise'];
-  console.log(NativePromise);
   var nativePromiseSupported = NativePromise &&
   // Some of these methods are missing from
   // Firefox/Chrome experimental implementations

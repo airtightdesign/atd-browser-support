@@ -1,3 +1,3 @@
-import Promise from './polyfills/legacy/promise';
+import Promise from 'es6-promise-polyfill';
 
 window.Promise = Promise;
