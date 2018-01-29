@@ -1,9 +1,13 @@
 const path = require('path');
 
 module.exports = {
-  entry: ['./src/js/supports.js', './src/js/deprecated-polyfills.js', './src/js/legacy-polyfills.js'],
+  entry: {
+      'atd-browser-support': path.resolve(__dirname, './src/js/supports.js'), 
+      'deprecated-polyfills': path.resolve(__dirname, './src/js/deprecated-polyfills.js'), 
+      'legacy-polyfills': path.resolve(__dirname, './src/js/legacy-polyfills.js')
+    },
   output: {
-    filename: 'atd-browser-support.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, './dist/js')
   },
   module: {

@@ -1,14 +1,16 @@
 export default (function() {
+    var script = '/dist/js/legacy-polyfills.js';
+
     function checkSupport() {
         console.log('Testing Legacy');
-        if(typeof document.querySelectorAll === 'function') {
-            return true;
-        }
-
-        return false;
+        return (
+            typeof document.querySelectorAll === 'function' &&
+            typeof document.body.classList === 'object'
+        );
     }
 
     return {
-        checkSupport
+        checkSupport,
+        script
     }
 })();

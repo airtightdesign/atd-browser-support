@@ -60,20 +60,17 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ([
-/* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(1);
-__webpack_require__(5);
-module.exports = __webpack_require__(6);
-
-
-/***/ }),
-/* 1 */
+/* 0 */,
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -84,34 +81,39 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Supports = undefined;
 
-var _modern = __webpack_require__(2);
+var _modern = __webpack_require__(7);
 
 var _modern2 = _interopRequireDefault(_modern);
 
-var _legacy = __webpack_require__(3);
+var _legacy = __webpack_require__(8);
 
 var _legacy2 = _interopRequireDefault(_legacy);
 
-var _deprecated = __webpack_require__(4);
+var _deprecated = __webpack_require__(9);
 
 var _deprecated2 = _interopRequireDefault(_deprecated);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Supports = exports.Supports = function () {
-    var callback = null;
+    var _callback = null;
 
     function loadSupport(callback) {
         if (typeof callback === 'function') {
-            this.callback = callback;
+            _callback = callback;
         }
 
         if (passesModern()) {
             console.log('Is Modern');
+            if (_callback) {
+                _callback();
+            }
         } else if (passesLegacy()) {
             console.log('Is Legacy');
+            loadScript(_legacy2.default.script, _callback);
         } else {
             console.log('Is Deprecated');
+            loadScript(_deprecated2.default.script, _callback);
         }
     }
 
@@ -133,7 +135,21 @@ var Supports = exports.Supports = function () {
         return 'deprecated';
     }
 
-    function loadScript(script) {}
+    function loadScript(script, callback) {
+        var js = document.createElement('script');
+        js.src = script;
+        js.onload = function () {
+            if (callback) {
+                callback();
+            }
+        };
+        js.onerror = function () {
+            if (callback) {
+                callback(new Error('Failed to load script ' + script));
+            }
+        };
+        document.head.appendChild(js);
+    }
 
     return {
         loadSupport: loadSupport,
@@ -143,10 +159,12 @@ var Supports = exports.Supports = function () {
     };
 }();
 
-Supports.loadSupport();
+Supports.loadSupport(function () {
+    console.log('Ready');
+});
 
 /***/ }),
-/* 2 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -174,7 +192,7 @@ exports.default = function () {
 }();
 
 /***/ }),
-/* 3 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -184,23 +202,24 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 exports.default = function () {
+    var script = '/dist/js/legacy-polyfills.js';
+
     function checkSupport() {
         console.log('Testing Legacy');
-        if (typeof document.querySelectorAll === 'function') {
-            return true;
-        }
-
-        return false;
+        return typeof document.querySelectorAll === 'function' && _typeof(document.body.classList) === 'object';
     }
 
     return {
-        checkSupport: checkSupport
+        checkSupport: checkSupport,
+        script: script
     };
 }();
 
 /***/ }),
-/* 4 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -211,22 +230,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 exports.default = function () {
-    return {};
+    var script = '/dist/js/deprecated-polyfills.js';
+    return {
+        script: script
+    };
 }();
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
 
 /***/ })
 /******/ ]);

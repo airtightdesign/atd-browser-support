@@ -3,21 +3,26 @@ import Legacy from './legacy.support';
 import Deprecated from './deprecated.support';
 
 export const Supports = (function() {
-    var callback = null;
+    var _callback = null;
 
     function loadSupport(callback) {
         if(typeof callback === 'function') {
-            this.callback = callback;
+            _callback = callback;
         }
 
         if(passesModern()) {
             console.log('Is Modern');
+            if(_callback) {
+                _callback();
+            }
         }
         else if(passesLegacy()) {
             console.log('Is Legacy');
+            loadScript(Legacy.script, _callback);
         }
         else {
             console.log('Is Deprecated');
+            loadScript(Deprecated.script, _callback);
         }
     }
 
@@ -40,8 +45,20 @@ export const Supports = (function() {
         return 'deprecated';
     }
 
-    function loadScript(script) {
-
+    function loadScript(script, callback) {
+        var js = document.createElement('script');
+        js.src = script;
+        js.onload = function() {
+            if(callback) {
+                callback();
+            }
+        };
+        js.onerror = function() {
+            if(callback) {
+                callback(new Error('Failed to load script ' + script));
+            }
+        };
+        document.head.appendChild(js);
     }
 
     return {
@@ -52,4 +69,6 @@ export const Supports = (function() {
     }
 })();
 
-Supports.loadSupport();
+Supports.loadSupport(function() {
+    console.log('Ready'); 
+});

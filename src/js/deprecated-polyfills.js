@@ -1,1 +1,4 @@
-import Console from './polyfills/console';
+import './legacy-polyfills';
+
+import './polyfills/deprecated/console';
+import './polyfills/deprecated/classlist';

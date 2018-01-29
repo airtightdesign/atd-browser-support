@@ -8,4 +8,12 @@ https://philipwalton.com/articles/loading-polyfills-only-when-needed/
 
 ### Legacy Browsers
 
+#### Polyfills Included: 
+
+- Promise
+
 ### Deprecated Browsers
+
+#### Polyfills Included:
+
+- Console

@@ -1,3 +1,6 @@
 export default (function() {
-    return {}
+    var script = '/dist/js/deprecated-polyfills.js';
+    return {
+        script
+    }
 })();
