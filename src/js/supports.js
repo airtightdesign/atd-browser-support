@@ -61,6 +61,7 @@ function loadScript(script, callback) {
 }
 
 export default {
+    loadSupport,
     loadScript,
     passesModern,
     passesLegacy,

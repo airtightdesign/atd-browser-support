@@ -84,17 +84,17 @@ Object.defineProperty(exports, "__esModule", {
 
 var _modern = __webpack_require__(8);
 
-var Modern = _interopRequireWildcard(_modern);
+var _modern2 = _interopRequireDefault(_modern);
 
 var _legacy = __webpack_require__(9);
 
-var Legacy = _interopRequireWildcard(_legacy);
+var _legacy2 = _interopRequireDefault(_legacy);
 
 var _deprecated = __webpack_require__(10);
 
-var Deprecated = _interopRequireWildcard(_deprecated);
+var _deprecated2 = _interopRequireDefault(_deprecated);
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function loadSupport(callback) {
     var _callback = void 0;
@@ -110,19 +110,19 @@ function loadSupport(callback) {
         }
     } else if (passesLegacy()) {
         console.log('Is Legacy');
-        loadScript(Legacy.script, _callback);
+        loadScript(_legacy2.default.script, _callback);
     } else {
         console.log('Is Deprecated');
-        loadScript(Deprecated.script, _callback);
+        loadScript(_deprecated2.default.script, _callback);
     }
 }
 
 function passesModern() {
-    return Modern.checkSupport();
+    return _modern2.default.checkSupport();
 }
 
 function passesLegacy() {
-    return Legacy.checkSupport();
+    return _legacy2.default.checkSupport();
 }
 
 function getSupportLevel() {
