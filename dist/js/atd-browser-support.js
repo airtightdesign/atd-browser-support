@@ -188,7 +188,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var script = '/dist/js/legacy-polyfills.js';
+var script = '/dist/js/atd-legacy-polyfills.js';
 
 function checkSupport() {
     console.log('Testing Legacy');
@@ -210,7 +210,7 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var script = '/dist/js/deprecated-polyfills.js';
+var script = '/dist/js/atd-deprecated-polyfills.js';
 
 exports.default = {
     script: script

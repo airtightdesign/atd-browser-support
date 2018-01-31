@@ -1,4 +1,4 @@
-const script = '/dist/js/legacy-polyfills.js';
+const script = '/dist/js/atd-legacy-polyfills.js';
 
 function checkSupport() {
     console.log('Testing Legacy');
