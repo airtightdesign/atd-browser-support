@@ -60,12 +60,18 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 28);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 28:
+/******/ ([
+/* 0 */,
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -76,15 +82,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Supports = undefined;
 
-var _modern = __webpack_require__(29);
+var _modern = __webpack_require__(8);
 
 var _modern2 = _interopRequireDefault(_modern);
 
-var _legacy = __webpack_require__(30);
+var _legacy = __webpack_require__(9);
 
 var _legacy2 = _interopRequireDefault(_legacy);
 
-var _deprecated = __webpack_require__(31);
+var _deprecated = __webpack_require__(10);
 
 var _deprecated2 = _interopRequireDefault(_deprecated);
 
@@ -154,13 +160,8 @@ var Supports = exports.Supports = function () {
     };
 }();
 
-Supports.loadSupport(function () {
-    console.log('Ready');
-});
-
 /***/ }),
-
-/***/ 29:
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -188,8 +189,7 @@ exports.default = function () {
 }();
 
 /***/ }),
-
-/***/ 30:
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -216,8 +216,7 @@ exports.default = function () {
 }();
 
 /***/ }),
-
-/***/ 31:
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -235,5 +234,4 @@ exports.default = function () {
 }();
 
 /***/ })
-
-/******/ });
+/******/ ]);

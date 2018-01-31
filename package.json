@@ -1,8 +1,8 @@
 {
   "name": "atd-browser-support",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Browser support module for web development",
-  "main": "dist/atd-browser-support.js",
+  "main": "./dist/js/atd-browser-support.js",
   "scripts": {
     "webpack": "webpack",
     "http": "http-server ./test"
@@ -13,7 +13,8 @@
   },
   "keywords": [
     "frontend",
-    "browser-support"
+    "browser-support",
+    "polyfills"
   ],
   "author": "John Grahan <john@airtightdesign.com>",
   "license": "MIT",
