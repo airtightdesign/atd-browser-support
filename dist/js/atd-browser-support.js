@@ -152,6 +152,7 @@ function loadScript(script, callback) {
 }
 
 exports.default = {
+    loadSupport: loadSupport,
     loadScript: loadScript,
     passesModern: passesModern,
     passesLegacy: passesLegacy,
