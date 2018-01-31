@@ -14,7 +14,7 @@ Add this to your project
 
 ```
 npm install atd-browser-support
-
+```
 
 In order to load the polyfills on demand from the browser, the .js files must be copied over from the `atd-browser-support` module `dist/js` folder.
 
