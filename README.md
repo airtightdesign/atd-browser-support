@@ -49,7 +49,7 @@ module.exports = {
     ])
   ]
 };
-'''
+```
 
 ## Model for Browser Support
 
