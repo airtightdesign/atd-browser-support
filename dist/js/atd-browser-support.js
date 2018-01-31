@@ -80,85 +80,82 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.Supports = undefined;
 
 var _modern = __webpack_require__(8);
 
-var _modern2 = _interopRequireDefault(_modern);
+var Modern = _interopRequireWildcard(_modern);
 
 var _legacy = __webpack_require__(9);
 
-var _legacy2 = _interopRequireDefault(_legacy);
+var Legacy = _interopRequireWildcard(_legacy);
 
 var _deprecated = __webpack_require__(10);
 
-var _deprecated2 = _interopRequireDefault(_deprecated);
+var Deprecated = _interopRequireWildcard(_deprecated);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-var Supports = exports.Supports = function () {
-    function loadSupport(callback) {
-        var _callback = void 0;
+function loadSupport(callback) {
+    var _callback = void 0;
 
-        if (typeof callback === 'function') {
-            _callback = callback;
+    if (typeof callback === 'function') {
+        _callback = callback;
+    }
+
+    if (passesModern()) {
+        console.log('Is Modern');
+        if (_callback) {
+            _callback();
         }
+    } else if (passesLegacy()) {
+        console.log('Is Legacy');
+        loadScript(Legacy.script, _callback);
+    } else {
+        console.log('Is Deprecated');
+        loadScript(Deprecated.script, _callback);
+    }
+}
 
-        if (passesModern()) {
-            console.log('Is Modern');
-            if (_callback) {
-                _callback();
-            }
-        } else if (passesLegacy()) {
-            console.log('Is Legacy');
-            loadScript(_legacy2.default.script, _callback);
-        } else {
-            console.log('Is Deprecated');
-            loadScript(_deprecated2.default.script, _callback);
+function passesModern() {
+    return Modern.checkSupport();
+}
+
+function passesLegacy() {
+    return Legacy.checkSupport();
+}
+
+function getSupportLevel() {
+    if (passesModern()) {
+        return 'modern';
+    } else if (passesLegacy()) {
+        return 'legacy';
+    }
+
+    return 'deprecated';
+}
+
+function loadScript(script, callback) {
+    var js = document.createElement('script');
+    js.src = script;
+    js.onload = function () {
+        if (callback) {
+            callback();
         }
-    }
-
-    function passesModern() {
-        return _modern2.default.checkSupport();
-    }
-
-    function passesLegacy() {
-        return _legacy2.default.checkSupport();
-    }
-
-    function getSupportLevel() {
-        if (passesModern()) {
-            return 'modern';
-        } else if (passesLegacgy()) {
-            return 'legacy';
-        }
-
-        return 'deprecated';
-    }
-
-    function loadScript(script, callback) {
-        var js = document.createElement('script');
-        js.src = script;
-        js.onload = function () {
-            if (callback) {
-                callback();
-            }
-        };
-        js.onerror = function () {
-            if (callback) {
-                callback(new Error('Failed to load script ' + script));
-            }
-        };
-        document.head.appendChild(js);
-    }
-
-    return {
-        loadSupport: loadSupport,
-        passesModern: passesModern,
-        passesLegacy: passesLegacy,
-        getSupportLevel: getSupportLevel
     };
-}();
+    js.onerror = function () {
+        if (callback) {
+            callback(new Error('Failed to load script ' + script));
+        }
+    };
+    document.head.appendChild(js);
+}
+
+exports.default = {
+    loadScript: loadScript,
+    passesModern: passesModern,
+    passesLegacy: passesLegacy,
+    getSupportLevel: getSupportLevel
+};
 
 /***/ }),
 /* 8 */
@@ -170,23 +167,18 @@ var Supports = exports.Supports = function () {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-
-exports.default = function () {
-    var callback = null;
-
-    function checkSupport() {
-        console.log('Testing Modern');
-        if (typeof window.Promise === 'function') {
-            return true;
-        }
-
-        return false;
+function checkSupport() {
+    console.log('Testing Modern');
+    if (typeof window.Promise === 'function') {
+        return true;
     }
 
-    return {
-        checkSupport: checkSupport
-    };
-}();
+    return false;
+}
+
+exports.default = {
+    checkSupport: checkSupport
+};
 
 /***/ }),
 /* 9 */
@@ -201,19 +193,17 @@ Object.defineProperty(exports, "__esModule", {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-exports.default = function () {
-    var script = '/dist/js/legacy-polyfills.js';
+var script = '/dist/js/legacy-polyfills.js';
 
-    function checkSupport() {
-        console.log('Testing Legacy');
-        return typeof document.querySelectorAll === 'function' && _typeof(document.body.classList) === 'object';
-    }
+function checkSupport() {
+    console.log('Testing Legacy');
+    return typeof document.querySelectorAll === 'function' && _typeof(document.body.classList) === 'object';
+}
 
-    return {
-        checkSupport: checkSupport,
-        script: script
-    };
-}();
+exports.default = {
+    checkSupport: checkSupport,
+    script: script
+};
 
 /***/ }),
 /* 10 */
@@ -225,13 +215,11 @@ exports.default = function () {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+var script = '/dist/js/deprecated-polyfills.js';
 
-exports.default = function () {
-    var script = '/dist/js/deprecated-polyfills.js';
-    return {
-        script: script
-    };
-}();
+exports.default = {
+    script: script
+};
 
 /***/ })
 /******/ ]);
