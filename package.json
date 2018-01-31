@@ -1,6 +1,6 @@
 {
   "name": "atd-browser-support",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Browser support module for web development",
   "main": "./dist/js/atd-browser-support.js",
   "scripts": {
@@ -26,6 +26,7 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
+    "copy-webpack-plugin": "^4.3.1",
     "http-server": "^0.11.1",
     "webpack": "^3.10.0"
   },

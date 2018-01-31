@@ -1,4 +1,5 @@
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -20,5 +21,19 @@ module.exports = {
               }
           }
       ]
-  }
+  },
+  plugins: [
+    new CopyWebpackPlugin([
+        { 
+            from: './node_modules/atd-legacy-polyfills/dist/js/atd-legacy-polyfills.js',
+            to: 'atd-legacy-polyfills.js',
+            copyUnmodified: true
+        },
+        { 
+            from: './node_modules/atd-deprecated-polyfills/dist/js/atd-deprecated-polyfills.js',
+            to: 'atd-deprecated-polyfills.js',
+            copyUnmodified: true
+        }
+    ])
+  ]
 };
