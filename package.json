@@ -4,7 +4,7 @@
   "description": "Browser support module for web development",
   "main": "./dist/js/atd-browser-support.js",
   "scripts": {
-    "webpack": "webpack",
+    "build": "webpack",
     "http": "http-server ./test"
   },
   "repository": {
@@ -26,13 +26,11 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
-    "classlist-polyfill": "^1.2.0",
-    "console-polyfill": "^0.3.0",
-    "es6-promise-polyfill": "^1.2.0",
-    "fetch-polyfill": "^0.8.2",
     "http-server": "^0.11.1",
-    "webpack": "^3.10.0",
-    "webpack-preset-env": "^1.0.0",
-    "whatwg-fetch": "^2.0.3"
+    "webpack": "^3.10.0"
+  },
+  "dependencies": {
+    "atd-deprecated-polyfills": "0.0.1",
+    "atd-legacy-polyfills": "0.0.1"
   }
 }

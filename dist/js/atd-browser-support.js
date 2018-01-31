@@ -61,18 +61,11 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ([
-/* 0 */,
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */
+/* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -82,15 +75,15 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _modern = __webpack_require__(8);
+var _modern = __webpack_require__(1);
 
 var _modern2 = _interopRequireDefault(_modern);
 
-var _legacy = __webpack_require__(9);
+var _legacy = __webpack_require__(2);
 
 var _legacy2 = _interopRequireDefault(_legacy);
 
-var _deprecated = __webpack_require__(10);
+var _deprecated = __webpack_require__(3);
 
 var _deprecated2 = _interopRequireDefault(_deprecated);
 
@@ -160,7 +153,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 8 */
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -183,7 +176,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 9 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -208,7 +201,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 10 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
