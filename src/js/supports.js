@@ -1,6 +1,6 @@
-import * as Modern from './modern.support';
-import * as Legacy from './legacy.support';
-import * as Deprecated from './deprecated.support';
+import Modern from './modern.support';
+import Legacy from './legacy.support';
+import Deprecated from './deprecated.support';
 
 function loadSupport(callback) {
     let _callback;
