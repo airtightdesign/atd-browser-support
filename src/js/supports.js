@@ -2,7 +2,7 @@ import Modern from './modern.support';
 import Legacy from './legacy.support';
 import Deprecated from './deprecated.support';
 
-function loadSupport(callback) {
+function loadSupport(callback, path = '') {
     let _callback;
     
     if(typeof callback === 'function') {
@@ -17,11 +17,11 @@ function loadSupport(callback) {
     }
     else if(passesLegacy()) {
         console.log('Is Legacy');
-        loadScript(Legacy.script, _callback);
+        loadScript(path + Legacy.script, _callback);
     }
     else {
         console.log('Is Deprecated');
-        loadScript(Deprecated.script, _callback);
+        loadScript(path + Deprecated.script, _callback);
     }
 }
 

@@ -90,6 +90,8 @@ var _deprecated2 = _interopRequireDefault(_deprecated);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function loadSupport(callback) {
+    var path = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+
     var _callback = void 0;
 
     if (typeof callback === 'function') {
@@ -103,10 +105,10 @@ function loadSupport(callback) {
         }
     } else if (passesLegacy()) {
         console.log('Is Legacy');
-        loadScript(_legacy2.default.script, _callback);
+        loadScript(path + _legacy2.default.script, _callback);
     } else {
         console.log('Is Deprecated');
-        loadScript(_deprecated2.default.script, _callback);
+        loadScript(path + _deprecated2.default.script, _callback);
     }
 }
 
