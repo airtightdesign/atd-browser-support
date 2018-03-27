@@ -130,7 +130,6 @@ function getSupportLevel() {
 
 function loadScript(script, callback) {
     var js = document.createElement('script');
-    js.src = script;
     js.onload = function () {
         if (callback) {
             callback();
@@ -141,6 +140,7 @@ function loadScript(script, callback) {
             callback(new Error('Failed to load script ' + script));
         }
     };
+    js.src = script;
     document.head.appendChild(js);
 }
 
