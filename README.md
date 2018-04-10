@@ -88,5 +88,5 @@ Legacy Browsers (partial support) load polyfills from the [atd-legacy-polyfills 
 
 ### Deprecated Browsers
 
-Deprecated Browsers (partial support) load polyfills from the [atd-legacy-polyfills module](https://www.npmjs.com/package/atd-deprecated-polyfills).
+Deprecated Browsers (partial support) load polyfills from the [atd-deprecated-polyfills module](https://www.npmjs.com/package/atd-deprecated-polyfills).
 

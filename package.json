@@ -31,7 +31,7 @@
     "webpack": "^3.10.0"
   },
   "dependencies": {
-    "atd-deprecated-polyfills": "^1.0.5",
+    "atd-deprecated-polyfills": "^1.0.8",
     "atd-legacy-polyfills": "^1.0.5"
   }
 }
