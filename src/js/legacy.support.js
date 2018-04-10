@@ -4,7 +4,7 @@ function checkSupport() {
     console.log('Testing Legacy');
     return (
         typeof document.querySelectorAll === 'function' &&
-        typeof document.body.classList === 'object'
+        "classList" in document.createElement("_")
     );
 }
 

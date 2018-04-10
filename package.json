@@ -1,6 +1,6 @@
 {
   "name": "atd-browser-support",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Browser support module for web development",
   "main": "./dist/js/atd-browser-support.js",
   "scripts": {

@@ -187,14 +187,11 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
 var script = '/dist/js/atd-legacy-polyfills.js';
 
 function checkSupport() {
     console.log('Testing Legacy');
-    return typeof document.querySelectorAll === 'function' && _typeof(document.body.classList) === 'object';
+    return typeof document.querySelectorAll === 'function' && "classList" in document.createElement("_");
 }
 
 exports.default = {
